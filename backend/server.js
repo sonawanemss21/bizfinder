@@ -7,12 +7,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const businesses = JSON.parse(fs.readFileSync("../backend/businesses.json", "utf-8"));
+const businesses = JSON.parse(fs.readFileSync("./businesses.json", "utf-8"));
 
 app.post("/api/chat", async (req, res) => {
   try {
     const { message } = req.body;
+    console.log("Incoming message:", message);
+
     const reply = await getLLMResponse(message, businesses);
+    console.log("Reply:", reply);
+
     res.json({ reply });
   } catch (err) {
     console.error(err.message);
