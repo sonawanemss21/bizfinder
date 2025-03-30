@@ -16,7 +16,8 @@ export default function ChatWindow({ open, onClose }) {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: "👋 Hi! I'm your AI assistant. How can I help you today?",
+      content:
+        "👋 Hi! I'm your AI assistant. How can I help you today? Try 'Help me find highest rated business in IT and provide me details'",
     },
   ]);
   const [userInput, setUserInput] = useState("");
@@ -104,6 +105,17 @@ export default function ChatWindow({ open, onClose }) {
           display: "flex",
           flexDirection: "column",
           gap: 1,
+          // Scrollbar styling
+          "&::-webkit-scrollbar": {
+            width: "8px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#1662aa", // Dark Blue
+            borderRadius: "4px",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#FAF0CA", // Light background to contrast
+          },
         }}
       >
         {messages.map((msg, idx) => (
