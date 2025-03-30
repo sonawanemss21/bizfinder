@@ -5,7 +5,7 @@ async function getLLMResponse(userMessage, businesses) {
   const businessData = JSON.stringify(businesses, null, 2);
 
   const systemPrompt = `
-You are a business directory assistant.
+You are a business directory assistant. and provide a well structured reply
 
 ❗️Only use the business data provided below to answer.
 ❌ If the user asks ANYTHING unrelated, respond strictly with:
